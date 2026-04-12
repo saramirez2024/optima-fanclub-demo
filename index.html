@@ -3,33 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fan Club Health & Fitness — Houston's Premier Independent Gym</title>
-  <meta name="description" content="28,000+ sq ft of premium fitness, personal training, recovery lounge, and wellness services in Houston TX. No contracts. Real results.">
+  <title>Fan Club Health & Fitness — Houston, TX</title>
+  <meta name="description" content="28,000 sq ft of premium fitness in Houston. No contracts. Personal training, group classes, recovery lounge, and more.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== VARIABLES ===== */
-    :root {
-      --brand: #E63946;
-      --brand-dark: #C1121F;
-      --brand-light: #FFE0E3;
-      --accent: #1D3557;
-      --text: #1a1a1a;
-      --text-light: #555;
-      --bg: #ffffff;
-      --bg-light: #f8f9fa;
-      --border: #e0e0e0;
-      --shadow: 0 4px 6px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+    /* ===== RESET ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* ===== RESET ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: 'Inter', sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
       line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===== UTILITIES ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .accent { color: #E63946; }
+    .section { padding: 100px 0; }
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 20px;
     }
 
     /* ===== NAV ===== */
@@ -37,70 +62,83 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(10px);
-      padding: 16px 30px;
+      z-index: 100;
+      padding: 22px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 999;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      background: rgba(15,15,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    nav .logo {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--brand);
-      text-decoration: none;
-      letter-spacing: -0.5px;
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      color: #fff;
     }
 
-    nav .logo span { color: var(--accent); }
+    .nav-logo span { color: #E63946; }
 
-    nav .nav-links {
+    .nav-links {
       display: flex;
-      gap: 30px;
-      list-style: none;
+      gap: 36px;
+      align-items: center;
     }
 
-    nav .nav-links a {
-      text-decoration: none;
-      color: var(--text);
+    .nav-links a {
+      font-size: 0.82rem;
       font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.3s;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #aaa;
+      transition: color 0.2s;
     }
 
-    nav .nav-links a:hover { color: var(--brand); }
+    .nav-links a:hover { color: #fff; }
 
-    nav .nav-cta {
-      background: var(--brand);
-      color: white;
-      padding: 10px 24px;
-      border-radius: 50px;
-      text-decoration: none;
+    .nav-cta {
+      font-size: 0.82rem;
       font-weight: 600;
-      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff !important;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 10px 22px;
+      transition: border-color 0.2s, color 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      border-color: #E63946 !important;
+      color: #E63946 !important;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
       transition: all 0.3s;
     }
 
-    nav .nav-cta:hover {
-      background: var(--brand-dark);
-      transform: translateY(-1px);
-    }
-
-    /* ===== HERO SECTION ===== */
+    /* ===== HERO ===== */
     .hero {
-      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 50%, var(--accent) 100%);
-      color: white;
-      padding: 140px 20px 100px;
-      text-align: center;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-end;
+      padding: 0 24px 80px;
       position: relative;
+      background: #0f0f0f;
       overflow: hidden;
     }
 
@@ -108,1058 +146,1251 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: radial-gradient(ellipse at 70% 40%, rgba(230,57,70,0.06) 0%, transparent 60%);
+      pointer-events: none;
     }
 
-    .hero .container { position: relative; z-index: 1; }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 0.85rem;
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      color: #E63946;
       margin-bottom: 24px;
-      border: 1px solid rgba(255,255,255,0.2);
     }
 
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-      line-height: 1.1;
-      max-width: 700px;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 40px;
-      opacity: 0.92;
-      max-width: 560px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .cta-button {
-      background: white;
-      color: var(--brand);
-      padding: 18px 40px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: var(--shadow-lg);
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-    }
-
-    .cta-secondary {
-      background: transparent;
-      color: white;
-      border: 2px solid rgba(255,255,255,0.5);
-      padding: 16px 36px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-decoration: none;
-    }
-
-    .cta-secondary:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: white;
-    }
-
-    /* ===== STATS BAR ===== */
-    .stats-bar {
-      background: var(--accent);
-      padding: 40px 20px;
-      color: white;
-    }
-
-    .stats-grid {
+    .hero-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 12vw, 160px);
+      line-height: 0.92;
+      color: #fff;
       max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      text-align: center;
+      margin-bottom: 36px;
     }
 
-    .stat-item h3 {
-      font-size: 2.2rem;
-      font-weight: 800;
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #888;
+      max-width: 420px;
+      margin-bottom: 48px;
+      line-height: 1.7;
     }
 
-    .stat-item p {
-      font-size: 0.85rem;
-      opacity: 0.8;
+    .hero-cta {
+      display: inline-block;
+      background: #E63946;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      padding: 18px 44px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: #c1121f;
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      position: absolute;
+      top: 50%;
+      right: 24px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      text-align: right;
+    }
+
+    .hero-stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .hero-stat-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
       margin-top: 4px;
     }
 
-    /* ===== FEATURES SECTION ===== */
-    .features {
-      padding: 100px 20px;
-      background: var(--bg-light);
+    .hero-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.08);
+      margin-left: auto;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
+    /* ===== MARQUEE ===== */
+    .marquee-wrap {
+      background: #E63946;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 14px 0;
     }
 
-    .section-header {
-      text-align: center;
+    .marquee-track {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+    }
+
+    .marquee-track span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      color: #fff;
+      padding: 0 40px;
+      opacity: 0.9;
+    }
+
+    .marquee-track span.dot {
+      padding: 0;
+      opacity: 0.5;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ===== ABOUT / INTRO ===== */
+    .about {
+      padding: 120px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-headline {
+      font-size: clamp(48px, 6vw, 80px);
+      color: #fff;
+      line-height: 0.95;
+    }
+
+    .about-headline em {
+      font-style: normal;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .about-body {
+      padding-top: 8px;
+    }
+
+    .about-body p {
+      font-size: 1rem;
+      color: #888;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .about-body strong { color: #fff; font-weight: 600; }
+
+    /* ===== SERVICES ===== */
+    .services {
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .services-header {
       margin-bottom: 60px;
     }
 
-    .section-header h2 {
-      font-size: 2.5rem;
-      color: var(--text);
+    .services-headline {
+      font-size: clamp(48px, 6vw, 80px);
+      color: #fff;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .service-item {
+      padding: 40px 36px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+
+    .service-item:nth-child(3n) { border-right: none; }
+    .service-item:nth-child(n+4) { border-bottom: none; }
+
+    .service-item:hover {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      color: #333;
+      margin-bottom: 28px;
+    }
+
+    .service-name {
+      font-size: clamp(22px, 2.5vw, 30px);
+      color: #fff;
       margin-bottom: 12px;
     }
 
-    .section-header p {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .feature-card {
-      background: white;
-      padding: 36px;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--brand-light);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .feature-icon {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
-    }
-
-    .feature-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-      color: var(--accent);
-    }
-
-    .feature-card p {
-      color: var(--text-light);
+    .service-desc {
+      font-size: 0.88rem;
+      color: #666;
       line-height: 1.7;
-      font-size: 0.95rem;
     }
 
-    /* ===== PRICING SECTION ===== */
+    /* ===== PRICING ===== */
     .pricing {
-      padding: 100px 20px;
-      background: white;
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .pricing-header {
+      margin-bottom: 60px;
+    }
+
+    .pricing-headline {
+      font-size: clamp(48px, 6vw, 80px);
+      color: #fff;
+    }
+
+    .pricing-sub {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 12px;
+      font-weight: 400;
     }
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      max-width: 750px;
-      margin: 0 auto;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
     }
 
     .pricing-card {
-      border: 2px solid var(--border);
-      border-radius: 16px;
-      padding: 40px;
-      text-align: center;
+      background: #0f0f0f;
+      padding: 56px 48px;
       position: relative;
-      transition: all 0.3s;
     }
 
-    .pricing-card.popular {
-      border-color: var(--brand);
-      box-shadow: var(--shadow-lg);
-      transform: scale(1.03);
+    .pricing-card.featured {
+      background: #141414;
     }
 
-    .pricing-card.popular::before {
-      content: 'MOST POPULAR';
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--brand);
-      color: white;
-      padding: 5px 20px;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+    .pricing-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #E63946;
+      margin-bottom: 32px;
+      display: block;
     }
 
-    .pricing-card h3 {
-      font-size: 1.4rem;
-      color: var(--accent);
-      margin-bottom: 10px;
+    .pricing-name {
+      font-size: clamp(36px, 4vw, 56px);
+      color: #fff;
+      margin-bottom: 8px;
     }
 
-    .pricing-card .price {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 5px;
+    .pricing-price {
+      font-family: 'Inter', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 8px;
     }
 
-    .pricing-card .price span {
-      font-size: 1rem;
+    .pricing-price sup {
+      font-size: 1.2rem;
+      vertical-align: super;
       font-weight: 400;
-      color: var(--text-light);
+      color: #666;
     }
 
-    .pricing-card .price-note {
-      color: var(--text-light);
+    .pricing-price span {
       font-size: 0.9rem;
-      margin-bottom: 24px;
+      color: #555;
+      font-weight: 400;
     }
 
-    .pricing-card ul {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 30px;
+    .pricing-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 36px 0;
     }
 
-    .pricing-card ul li {
-      padding: 8px 0;
-      color: var(--text-light);
-      font-size: 0.95rem;
-      border-bottom: 1px solid var(--bg-light);
+    .pricing-features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
     }
 
-    .pricing-card ul li::before {
-      content: '\2713';
-      color: var(--brand);
-      font-weight: 700;
-      margin-right: 10px;
+    .pricing-feature {
+      font-size: 0.9rem;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .pricing-feature::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 1px;
+      background: #333;
+      flex-shrink: 0;
+    }
+
+    .pricing-feature.included {
+      color: #ccc;
+    }
+
+    .pricing-feature.included::before {
+      background: #E63946;
+      width: 16px;
+      height: 2px;
     }
 
     .pricing-btn {
       display: inline-block;
-      width: 100%;
-      padding: 16px;
-      border-radius: 50px;
-      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
       font-weight: 600;
-      text-decoration: none;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      transition: all 0.2s;
       cursor: pointer;
-      transition: all 0.3s;
-      border: 2px solid var(--brand);
-      background: white;
-      color: var(--brand);
+      background: transparent;
+      width: 100%;
+      text-align: center;
     }
 
     .pricing-btn:hover {
-      background: var(--brand);
-      color: white;
+      border-color: #fff;
+      background: rgba(255,255,255,0.04);
     }
 
-    .pricing-card.popular .pricing-btn {
-      background: var(--brand);
-      color: white;
+    .pricing-card.featured .pricing-btn {
+      background: #E63946;
+      border-color: #E63946;
     }
 
-    .pricing-card.popular .pricing-btn:hover {
-      background: var(--brand-dark);
-      border-color: var(--brand-dark);
+    .pricing-card.featured .pricing-btn:hover {
+      background: #c1121f;
+      border-color: #c1121f;
     }
 
-    /* ===== FAQ SECTION ===== */
+    /* ===== HOURS ===== */
+    .hours {
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .hours-headline {
+      font-size: clamp(48px, 6vw, 80px);
+      color: #fff;
+      line-height: 0.95;
+    }
+
+    .hours-table {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.92rem;
+    }
+
+    .hours-day {
+      color: #888;
+      font-weight: 400;
+    }
+
+    .hours-time {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .hours-address {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hours-address p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .hours-address a {
+      color: #888;
+      transition: color 0.2s;
+    }
+
+    .hours-address a:hover { color: #fff; }
+
+    /* ===== FAQ ===== */
     .faq {
-      padding: 100px 20px;
-      background: var(--bg-light);
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .faq-header {
+      margin-bottom: 60px;
+    }
+
+    .faq-headline {
+      font-size: clamp(48px, 6vw, 80px);
+      color: #fff;
     }
 
     .faq-list {
-      max-width: 700px;
-      margin: 0 auto;
+      max-width: 740px;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .faq-item {
-      background: white;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .faq-question {
-      padding: 20px 24px;
+      width: 100%;
+      background: none;
+      border: none;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: left;
+      padding: 26px 0;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-weight: 600;
-      color: var(--text);
-      font-size: 1rem;
+      gap: 20px;
+      transition: color 0.2s;
     }
 
-    .faq-question:hover { color: var(--brand); }
+    .faq-question:hover { color: #ccc; }
 
-    .faq-question .arrow {
-      transition: transform 0.3s;
-      font-size: 1.2rem;
-      color: var(--text-light);
+    .faq-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      position: relative;
     }
 
-    .faq-item.open .faq-question .arrow {
-      transform: rotate(180deg);
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: #555;
+      transition: all 0.3s;
+    }
+
+    .faq-icon::before {
+      width: 14px;
+      height: 1px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-icon::after {
+      width: 1px;
+      height: 14px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-item.open .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+      opacity: 0;
+    }
+
+    .faq-item.open .faq-icon::before,
+    .faq-item.open .faq-icon::after {
+      background: #fff;
     }
 
     .faq-answer {
-      max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
-      padding: 0 24px;
-      color: var(--text-light);
-      line-height: 1.7;
+      max-height: 0;
+      transition: max-height 0.35s ease;
     }
 
-    .faq-item.open .faq-answer {
-      max-height: 200px;
-      padding: 0 24px 20px;
+    .faq-answer-inner {
+      padding-bottom: 28px;
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .faq-answer-inner a {
+      color: #aaa;
+      border-bottom: 1px solid #333;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .faq-answer-inner a:hover {
+      color: #fff;
+      border-color: #fff;
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background: var(--accent);
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    footer .footer-info {
-      max-width: 600px;
-      margin: 0 auto;
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
     }
 
-    footer h3 {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      color: #fff;
     }
 
-    footer p {
-      opacity: 0.8;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
+    .footer-logo span { color: #E63946; }
+
+    .footer-meta {
+      font-size: 0.8rem;
+      color: #444;
+      line-height: 1.8;
+      text-align: right;
     }
 
-    footer .footer-cta {
-      display: inline-block;
-      margin-top: 20px;
-      background: var(--brand);
-      color: white;
-      padding: 14px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
+    .footer-meta a {
+      color: #555;
+      transition: color 0.2s;
     }
 
-    footer .footer-cta:hover {
-      background: var(--brand-dark);
+    .footer-meta a:hover { color: #aaa; }
+
+    /* ===== CHATBOT WIDGET ===== */
+    #chat-launcher {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 52px;
+      height: 52px;
+      background: #E63946;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 24px rgba(230,57,70,0.35);
+    }
+
+    #chat-launcher:hover {
+      background: #c1121f;
       transform: translateY(-2px);
     }
 
-    footer .copyright {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      font-size: 0.85rem;
-      opacity: 0.6;
+    #chat-launcher svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
     }
 
-    /* ===== CHATBOT WIDGET ===== */
-    #chatbot-toggle {
+    #chat-window {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 64px;
-      height: 64px;
-      background: var(--brand);
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(230,57,70,0.4);
-      z-index: 1000;
+      bottom: 96px;
+      right: 28px;
+      width: 360px;
+      max-height: 520px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    #chatbot-toggle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 30px rgba(230,57,70,0.5);
-    }
-
-    #chatbot-toggle svg {
-      width: 30px;
-      height: 30px;
-      fill: white;
-    }
-
-    #chatbot-container {
-      position: fixed;
-      bottom: 106px;
-      right: 30px;
-      width: 390px;
-      height: 580px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-      display: none;
       flex-direction: column;
-      z-index: 1000;
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.08);
+      z-index: 999;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
       overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
-    #chatbot-container.open { display: flex; }
+    #chat-window.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
 
-    #chatbot-header {
-      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-      color: white;
-      padding: 20px;
+    #chat-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    #chatbot-header h3 { font-size: 1.05rem; font-weight: 600; }
-    #chatbot-header .chat-subtitle { font-size: 0.8rem; opacity: 0.85; margin-top: 2px; }
+    #chat-header-left {
+      display: flex;
+      flex-direction: column;
+    }
 
-    #close-chat {
-      background: rgba(255,255,255,0.15);
+    #chat-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+    }
+
+    #chat-subtitle {
+      font-size: 0.72rem;
+      color: #555;
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    #chat-close {
+      background: none;
       border: none;
-      color: white;
-      font-size: 20px;
+      color: #555;
       cursor: pointer;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
+      padding: 4px;
+      transition: color 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.3s;
     }
 
-    #close-chat:hover { background: rgba(255,255,255,0.25); }
+    #chat-close:hover { color: #fff; }
+    #chat-close svg { width: 16px; height: 16px; }
 
     #chat-messages {
       flex: 1;
       overflow-y: auto;
       padding: 20px;
-      background: var(--bg-light);
-    }
-
-    .message {
-      margin-bottom: 14px;
       display: flex;
-      gap: 10px;
+      flex-direction: column;
+      gap: 14px;
+      scrollbar-width: thin;
+      scrollbar-color: #222 transparent;
     }
 
-    .message.user { justify-content: flex-end; }
+    #chat-messages::-webkit-scrollbar { width: 4px; }
+    #chat-messages::-webkit-scrollbar-track { background: transparent; }
+    #chat-messages::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
 
-    .message-content {
-      max-width: 78%;
+    .chat-msg {
+      max-width: 85%;
+      font-size: 0.88rem;
+      line-height: 1.6;
       padding: 12px 16px;
-      border-radius: 18px;
-      line-height: 1.5;
-      font-size: 0.93rem;
     }
 
-    .message.ai .message-content {
-      background: white;
-      color: var(--text);
-      border-bottom-left-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    .chat-msg.bot {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.05);
+      color: #ccc;
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
-    .message.user .message-content {
-      background: var(--brand);
-      color: white;
-      border-bottom-right-radius: 4px;
+    .chat-msg.user {
+      align-self: flex-end;
+      background: #E63946;
+      color: #fff;
     }
 
-    #chat-input-container {
-      padding: 16px 20px;
-      background: white;
-      border-top: 1px solid var(--border);
+    .chat-msg.typing {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #555;
+      font-style: italic;
+      font-size: 0.8rem;
+    }
+
+    #chat-input-area {
       display: flex;
-      gap: 10px;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     #chat-input {
       flex: 1;
-      padding: 12px 18px;
-      border: 2px solid var(--border);
-      border-radius: 24px;
-      font-size: 0.93rem;
-      font-family: inherit;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      padding: 16px 18px;
       outline: none;
-      transition: border-color 0.3s ease;
     }
 
-    #chat-input:focus { border-color: var(--brand); }
+    #chat-input::placeholder { color: #444; }
 
-    #send-message {
-      background: var(--brand);
-      color: white;
+    #chat-send {
+      background: none;
       border: none;
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
+      border-left: 1px solid rgba(255,255,255,0.06);
+      color: #555;
       cursor: pointer;
+      padding: 0 18px;
+      transition: color 0.2s;
       display: flex;
       align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease;
-      flex-shrink: 0;
     }
 
-    #send-message:hover { background: var(--brand-dark); }
-    #send-message svg { width: 20px; height: 20px; fill: white; }
+    #chat-send:hover { color: #E63946; }
+    #chat-send svg { width: 18px; height: 18px; }
 
-    .typing-indicator {
-      display: none;
-      padding: 12px 16px;
-      background: white;
-      border-radius: 18px;
-      width: fit-content;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-    }
-
-    .typing-indicator span {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background: var(--text-light);
-      border-radius: 50%;
-      margin-right: 5px;
-      animation: typing 1.4s infinite;
-    }
-
-    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; margin-right: 0; }
-
-    @keyframes typing {
-      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-      30% { transform: translateY(-10px); opacity: 1; }
-    }
-
-    /* Lead Capture Form */
-    #lead-form-container {
-      display: none;
-      padding: 20px;
-      background: var(--bg-light);
-    }
-
-    #lead-form-container.show { display: block; }
-
-    #lead-form h4 { margin-bottom: 15px; color: var(--text); }
-
-    #lead-form input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 10px;
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.93rem;
-      font-family: inherit;
-    }
-
-    #lead-form input:focus { outline: none; border-color: var(--brand); }
-
-    #lead-form button {
-      width: 100%;
-      padding: 14px;
-      background: var(--brand);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    #lead-form button:hover { background: var(--brand-dark); }
-
-    /* ===== MOBILE RESPONSIVE ===== */
+    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-      nav .nav-links { display: none; }
+      .nav-links { display: none; }
 
-      .hero h1 { font-size: 2.2rem; }
-      .hero p { font-size: 1.05rem; }
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background: #0f0f0f;
+        padding: 30px 24px;
+        gap: 24px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        z-index: 99;
+      }
 
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-item h3 { font-size: 1.6rem; }
+      .nav-hamburger { display: flex; }
 
-      .feature-grid { grid-template-columns: 1fr; }
+      .hero-stats {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        gap: 32px;
+        text-align: left;
+        margin-bottom: 40px;
+      }
 
-      .pricing-grid { grid-template-columns: 1fr; }
-      .pricing-card.popular { transform: none; }
+      .hero-divider { display: none; }
 
-      #chatbot-container {
-        width: calc(100vw - 20px);
-        right: 10px;
-        bottom: 106px;
-        height: 480px;
+      .about-grid,
+      .hours-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-item { border-right: none; }
+      .service-item:nth-child(n+4) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .service-item:last-child { border-bottom: none; }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card { padding: 40px 28px; }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      .footer-meta { text-align: left; }
+
+      #chat-window {
+        right: 16px;
+        left: 16px;
+        width: auto;
+        bottom: 90px;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- ===== NAV ===== -->
+  <!-- NAV -->
   <nav>
-    <a href="#" class="logo">FAN CLUB <span>Health & Fitness</span></a>
-    <ul class="nav-links">
+    <a href="#" class="nav-logo">Fan <span>Club</span></a>
+    <ul class="nav-links" id="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#hours">Hours</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="tel:7132874000" class="nav-cta">Call Us</a></li>
     </ul>
-    <a href="#" class="nav-cta" onclick="openChat(); return false;">Book a Free Tour</a>
+    <div class="nav-hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <section class="hero">
+    <div class="hero-stats" aria-hidden="true">
+      <div>
+        <div class="hero-stat-num">28K<span class="accent">+</span></div>
+        <div class="hero-stat-label">Square Feet</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div>
+        <div class="hero-stat-num">4.7</div>
+        <div class="hero-stat-label">Star Rating</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div>
+        <div class="hero-stat-num">6K<span class="accent">+</span></div>
+        <div class="hero-stat-label">Members</div>
+      </div>
+    </div>
+
+    <div class="hero-eyebrow">Houston, TX — 4665 SW Fwy</div>
+    <h1 class="hero-headline">The Right<br>Gym.<br>Real Results.</h1>
+    <p class="hero-sub">28,000 sq ft. No contracts. Every service you need under one roof.</p>
+    <a href="#pricing" class="hero-cta">View Membership Options</a>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Personal Training</span><span class="dot">&middot;</span>
+      <span>Group Classes</span><span class="dot">&middot;</span>
+      <span>FC Red HIIT</span><span class="dot">&middot;</span>
+      <span>Recovery Lounge</span><span class="dot">&middot;</span>
+      <span>Nutrition Consulting</span><span class="dot">&middot;</span>
+      <span>Physical Therapy</span><span class="dot">&middot;</span>
+      <span>Med Spa</span><span class="dot">&middot;</span>
+      <span>Pilates</span><span class="dot">&middot;</span>
+      <span>Yoga</span><span class="dot">&middot;</span>
+      <span>No Contracts</span><span class="dot">&middot;</span>
+      <!-- duplicate for seamless loop -->
+      <span>Personal Training</span><span class="dot">&middot;</span>
+      <span>Group Classes</span><span class="dot">&middot;</span>
+      <span>FC Red HIIT</span><span class="dot">&middot;</span>
+      <span>Recovery Lounge</span><span class="dot">&middot;</span>
+      <span>Nutrition Consulting</span><span class="dot">&middot;</span>
+      <span>Physical Therapy</span><span class="dot">&middot;</span>
+      <span>Med Spa</span><span class="dot">&middot;</span>
+      <span>Pilates</span><span class="dot">&middot;</span>
+      <span>Yoga</span><span class="dot">&middot;</span>
+      <span>No Contracts</span><span class="dot">&middot;</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about section">
     <div class="container">
-      <div class="hero-badge">Houston's Premier Independent Gym</div>
-      <h1>The Right Gym.<br>Real Results.</h1>
-      <p>28,000+ sq ft of premium fitness, personal training, recovery, and wellness — with no contracts and no excuses.</p>
-      <div class="hero-buttons">
-        <button class="cta-button" onclick="openChat()">Book a Free Tour</button>
-        <a href="#pricing" class="cta-secondary">View Membership Plans</a>
+      <div class="about-grid">
+        <div>
+          <p class="section-label">About Fan Club</p>
+          <h2 class="about-headline">Not a<br>chain.<br><em>Never</em><br>will be.</h2>
+        </div>
+        <div class="about-body">
+          <p>Fan Club Health & Fitness is Houston's premier independent gym. <strong>28,000 square feet</strong> of real equipment, real trainers, and real results — without the corporate overhead or contract traps.</p>
+          <p>We built this place for people who take their health seriously. Whether you're here for the weight room, the group classes, or a full recovery session, everything is under one roof and designed to work together.</p>
+          <p><strong>No long-term contracts. No hidden fees. Just the gym you've been looking for.</strong></p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== STATS BAR ===== -->
-  <section class="stats-bar">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <h3>28K+</h3>
-        <p>Sq Ft Facility</p>
-      </div>
-      <div class="stat-item">
-        <h3>4.7</h3>
-        <p>Star Rating</p>
-      </div>
-      <div class="stat-item">
-        <h3>6K+</h3>
-        <p>Community</p>
-      </div>
-      <div class="stat-item">
-        <h3>0</h3>
-        <p>Long-Term Contracts</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SERVICES / FEATURES ===== -->
-  <section class="features" id="services">
+  <!-- SERVICES -->
+  <section class="services" id="services">
     <div class="container">
-      <div class="section-header">
-        <h2>Everything You Need Under One Roof</h2>
-        <p>Fitness, recovery, and wellness — designed for every level</p>
+      <div class="services-header">
+        <p class="section-label">What We Offer</p>
+        <h2 class="services-headline">Everything<br>Under One Roof</h2>
       </div>
-      <div class="feature-grid">
-
-        <div class="feature-card">
-          <div class="feature-icon">&#127947;</div>
-          <h3>Personal Training</h3>
-          <p>One-on-one coaching with certified trainers. Customized programs for all fitness levels — whether you're just starting or training for competition.</p>
+      <div class="services-grid">
+        <div class="service-item">
+          <div class="service-num">01</div>
+          <h3 class="service-name">Personal Training</h3>
+          <p class="service-desc">One-on-one coaching with certified trainers. Custom programs built around your goals, schedule, and body.</p>
         </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#128293;</div>
-          <h3>Group Classes</h3>
-          <p>Pilates, Yoga, FC RED high-intensity interval training, and more. Multiple classes daily so you can always find one that fits your schedule.</p>
+        <div class="service-item">
+          <div class="service-num">02</div>
+          <h3 class="service-name">Group Classes</h3>
+          <p class="service-desc">Pilates, Yoga, and FC Red HIIT — high-energy group sessions that push you harder than you'll push yourself.</p>
         </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#129505;</div>
-          <h3>Recovery Lounge</h3>
-          <p>Red light therapy, compression therapy, and infrared sauna. Recover faster, feel better, train harder — science-backed recovery methods.</p>
+        <div class="service-item">
+          <div class="service-num">03</div>
+          <h3 class="service-name">Recovery Lounge</h3>
+          <p class="service-desc">Red light therapy, sauna, and compression recovery. Train hard. Recover harder.</p>
         </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#127860;</div>
-          <h3>Nutrition Consulting</h3>
-          <p>Work with our on-staff nutritionists for personalized meal plans and dietary guidance. Because 80% of results happen in the kitchen.</p>
+        <div class="service-item">
+          <div class="service-num">04</div>
+          <h3 class="service-name">Nutrition Consulting</h3>
+          <p class="service-desc">Evidence-based nutrition guidance integrated with your training. Fuel the work you're putting in.</p>
         </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#129657;</div>
-          <h3>Physical Therapy</h3>
-          <p>On-site PT services for injury recovery and prevention. Stay in the gym, stay in the game — with expert care steps away from the weights.</p>
+        <div class="service-item">
+          <div class="service-num">05</div>
+          <h3 class="service-name">Physical Therapy</h3>
+          <p class="service-desc">In-house physical therapy so you can move better, recover from injuries, and stay in the game long-term.</p>
         </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#10024;</div>
-          <h3>Med Spa & Beauty</h3>
-          <p>UV and spray tanning, plus spa services. Complete your wellness routine without leaving the building. Look good, feel good, train good.</p>
+        <div class="service-item">
+          <div class="service-num">06</div>
+          <h3 class="service-name">Med Spa</h3>
+          <p class="service-desc">Premium wellness and aesthetic treatments. The full picture of health, not just the gym floor.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ===== PRICING ===== -->
+  <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="container">
-      <div class="section-header">
-        <h2>Simple, Honest Pricing</h2>
-        <p>No contracts. No hidden fees. Cancel anytime.</p>
+      <div class="pricing-header">
+        <p class="section-label">Membership</p>
+        <h2 class="pricing-headline">Simple.<br>No Contracts.</h2>
+        <p class="pricing-sub">Cancel anytime. No enrollment fees. No surprises.</p>
       </div>
       <div class="pricing-grid">
-
         <div class="pricing-card">
-          <h3>Essential</h3>
-          <div class="price">$89<span>/mo</span></div>
-          <div class="price-note">Everything you need to train</div>
-          <ul>
-            <li>Full gym access — all equipment</li>
-            <li>All group classes included</li>
-            <li>Locker room & shower access</li>
-            <li>Open 7 days a week</li>
+          <span class="pricing-tag">Essential</span>
+          <h3 class="pricing-name">Essential</h3>
+          <div class="pricing-price"><sup>$</sup>89<span>/mo</span></div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature included">Full gym access — 28,000 sq ft</li>
+            <li class="pricing-feature included">Cardio & strength equipment</li>
+            <li class="pricing-feature included">Locker rooms & showers</li>
+            <li class="pricing-feature included">Month-to-month, cancel anytime</li>
+            <li class="pricing-feature">Group classes (add-on)</li>
+            <li class="pricing-feature">Recovery Lounge (add-on)</li>
           </ul>
-          <button class="pricing-btn" onclick="openChat()">Get Started</button>
+          <a href="#" class="pricing-btn">Get Started</a>
         </div>
-
-        <div class="pricing-card popular">
-          <h3>Ultimate</h3>
-          <div class="price">$119<span>/mo</span></div>
-          <div class="price-note">The complete wellness experience</div>
-          <ul>
-            <li>Everything in Essential</li>
-            <li>Recovery lounge access (red light + sauna)</li>
-            <li>1 personal training session / month</li>
-            <li>Priority class booking</li>
+        <div class="pricing-card featured">
+          <span class="pricing-tag">Most Popular</span>
+          <h3 class="pricing-name">Ultimate</h3>
+          <div class="pricing-price"><sup>$</sup>119<span>/mo</span></div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature included">Everything in Essential</li>
+            <li class="pricing-feature included">Unlimited group classes</li>
+            <li class="pricing-feature included">Recovery Lounge access</li>
+            <li class="pricing-feature included">Priority booking</li>
+            <li class="pricing-feature included">Nutrition consult (1x/mo)</li>
+            <li class="pricing-feature included">Month-to-month, cancel anytime</li>
           </ul>
-          <button class="pricing-btn" onclick="openChat()">Get Started</button>
+          <a href="#" class="pricing-btn">Get Started</a>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ===== FAQ ===== -->
+  <!-- HOURS & LOCATION -->
+  <section class="hours" id="hours">
+    <div class="container">
+      <div class="hours-grid">
+        <div>
+          <p class="section-label">Hours & Location</p>
+          <h2 class="hours-headline">Open Early.<br>Close Late.</h2>
+          <div class="hours-address">
+            <p>
+              4665 SW Fwy, Houston, TX<br>
+              <a href="tel:7132874000">(713) 287-4000</a><br>
+              <a href="mailto:info@fanclubhf.com">info@fanclubhf.com</a>
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="hours-table">
+            <div class="hours-row">
+              <span class="hours-day">Monday – Thursday</span>
+              <span class="hours-time">5:00 AM – 9:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Friday</span>
+              <span class="hours-time">5:00 AM – 7:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Saturday</span>
+              <span class="hours-time">7:00 AM – 5:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sunday</span>
+              <span class="hours-time">9:00 AM – 3:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="container">
-      <div class="section-header">
-        <h2>Frequently Asked Questions</h2>
-        <p>Got questions? We've got answers.</p>
+      <div class="faq-header">
+        <p class="section-label">FAQ</p>
+        <h2 class="faq-headline">Common<br>Questions</h2>
       </div>
       <div class="faq-list">
-
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Do I need to sign a long-term contract?
-            <span class="arrow">&#9660;</span>
+          <button class="faq-question">
+            Is there a contract or enrollment fee?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">No contracts and no enrollment fees. Both memberships are month-to-month — cancel anytime, no questions asked.</div>
           </div>
-          <div class="faq-answer">Nope! All memberships are month-to-month. No contracts, no commitments, no cancellation fees. We earn your membership every month.</div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            What are your hours?
-            <span class="arrow">&#9660;</span>
+          <button class="faq-question">
+            What's included in the Recovery Lounge?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">The Recovery Lounge includes red light therapy, sauna, and compression recovery equipment. Ultimate members get access included. Essential members can add it on separately.</div>
           </div>
-          <div class="faq-answer">Monday–Thursday: 5 AM – 9 PM, Friday: 5 AM – 7 PM, Saturday: 7 AM – 5 PM, Sunday: 9 AM – 3 PM. Early birds and night owls welcome.</div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Can I try the gym before joining?
-            <span class="arrow">&#9660;</span>
+          <button class="faq-question">
+            Do I need to book group classes in advance?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We recommend booking ahead, especially for FC Red HIIT and Pilates — those fill up fast. Ultimate members get priority booking access.</div>
           </div>
-          <div class="faq-answer">Absolutely! We offer free tours and day passes. Walk in anytime or chat with us below to schedule. No pressure — we want you to feel at home before you commit.</div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Do you offer military/veteran discounts?
-            <span class="arrow">&#9660;</span>
+          <button class="faq-question">
+            What does a Personal Training session look like?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Your trainer starts with a goal assessment and builds a custom program around you. Sessions are 60 minutes, and programs adjust as you progress. Personal Training is available as an add-on for all membership levels.</div>
           </div>
-          <div class="faq-answer">Yes! We have special veteran memberships available. Just ask at the front desk or chat with us below for details. Thank you for your service.</div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Where are you located?
-            <span class="arrow">&#9660;</span>
+          <button class="faq-question">
+            Is Fan Club part of a chain?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">No — Fan Club Health & Fitness is an independently owned gym in Houston. We're not a franchise and we don't operate like one.</div>
           </div>
-          <div class="faq-answer">4665 SW Freeway, Houston TX 77027. Easy access from the Southwest Freeway with plenty of free parking. You can also call us at (713) 528-4200.</div>
         </div>
-
+        <div class="faq-item">
+          <button class="faq-question">
+            Where are you located and is there parking?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We're at 4665 SW Fwy, Houston, TX. Yes, there's ample parking available on-site.</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-info">
-      <h3>Ready to Start Your Fitness Journey?</h3>
-      <p>4665 SW Freeway, Houston TX 77027</p>
-      <p>(713) 528-4200</p>
-      <p>Mon–Thu: 5AM–9PM &nbsp;|&nbsp; Fri: 5AM–7PM &nbsp;|&nbsp; Sat: 7AM–5PM &nbsp;|&nbsp; Sun: 9AM–3PM</p>
-      <a href="#" class="footer-cta" onclick="openChat(); return false;">Chat With Us Now</a>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Fan <span>Club</span></div>
+        <div class="footer-meta">
+          <p>4665 SW Fwy, Houston TX &nbsp;&middot;&nbsp; <a href="tel:7132874000">(713) 287-4000</a></p>
+          <p style="margin-top:6px; color:#333;">&copy; 2025 Fan Club Health &amp; Fitness. All rights reserved.</p>
+        </div>
+      </div>
     </div>
-    <div class="copyright">&copy; 2026 Fan Club Health & Fitness. All rights reserved.</div>
   </footer>
 
-  <!-- ===== CHATBOT WIDGET ===== -->
-  <button id="chatbot-toggle" onclick="toggleChat()" aria-label="Open chat">
-    <svg viewBox="0 0 24 24">
-      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+  <!-- CHATBOT WIDGET -->
+  <button id="chat-launcher" aria-label="Open chat">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
     </svg>
   </button>
 
-  <div id="chatbot-container">
-    <div id="chatbot-header">
-      <div>
-        <h3>Fan Club Assistant</h3>
-        <div class="chat-subtitle">Ask us anything about our gym</div>
+  <div id="chat-window" role="dialog" aria-label="Chat with Fan Club">
+    <div id="chat-header">
+      <div id="chat-header-left">
+        <div id="chat-title">Fan Club Assistant</div>
+        <div id="chat-subtitle">Ask about memberships, hours, or services</div>
       </div>
-      <button id="close-chat" onclick="toggleChat()" aria-label="Close chat">&times;</button>
+      <button id="chat-close" aria-label="Close chat">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      </button>
     </div>
-
-    <div id="chat-messages">
-      <div class="message ai">
-        <div class="message-content">
-          Hey! &#128075; Welcome to Fan Club Health & Fitness. I can help you with membership info, class schedules, services, or booking a free tour. What can I help with?
-        </div>
-      </div>
-      <div class="typing-indicator">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-
-    <div id="lead-form-container">
-      <form id="lead-form">
-        <h4>Let's Get You Started!</h4>
-        <input type="text" id="lead-name" placeholder="Your Name" required>
-        <input type="email" id="lead-email" placeholder="Your Email" required>
-        <input type="tel" id="lead-phone" placeholder="Phone (optional)">
-        <button type="submit">Book My Free Tour</button>
-      </form>
-    </div>
-
-    <div id="chat-input-container">
-      <input type="text" id="chat-input" placeholder="Ask me anything..." onkeypress="handleKeyPress(event)">
-      <button id="send-message" onclick="sendMessage()" aria-label="Send message">
-        <svg viewBox="0 0 24 24">
-          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-        </svg>
+    <div id="chat-messages"></div>
+    <div id="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" />
+      <button id="chat-send" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
     </div>
   </div>
 
-  <!-- ===== JAVASCRIPT ===== -->
   <script>
-    // ===== CONFIGURATION =====
-    // UPDATE THESE BEFORE DEPLOYING
-    var WORKER_URL = 'https://optima-api-sam.saramirez2024.workers.dev'; // ← Replace saramirez2024
-    var CLIENT_ID = 'fanclub-houston';
-    var FORMSPREE_ID = '';
-    var GOOGLE_SHEET_URL = '';
+    // ===== NAV =====
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
 
-    // ===== STATE =====
-    let conversationHistory = [];
-    let isProcessing = false;
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-open');
+    });
 
-    // ===== CHAT FUNCTIONS =====
-    function toggleChat() {
-      const container = document.getElementById('chatbot-container');
-      container.classList.toggle('open');
-      if (container.classList.contains('open')) {
-        document.getElementById('chat-input').focus();
-      }
-    }
-
-    function openChat() {
-      document.getElementById('chatbot-container').classList.add('open');
-      document.getElementById('chat-input').focus();
-    }
-
-    function handleKeyPress(event) {
-      if (event.key === 'Enter' && !event.shiftKey) {
-        event.preventDefault();
-        sendMessage();
-      }
-    }
-
-    async function sendMessage() {
-      if (isProcessing) return;
-
-      const input = document.getElementById('chat-input');
-      const message = input.value.trim();
-      if (!message) return;
-
-      addMessage(message, 'user');
-      input.value = '';
-
-      conversationHistory.push({ role: 'user', content: message });
-
-      showTypingIndicator();
-      isProcessing = true;
-
-      try {
-        const response = await fetch(WORKER_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Client-ID': CLIENT_ID
-          },
-          body: JSON.stringify({ messages: conversationHistory })
-        });
-
-        if (!response.ok) throw new Error('API error: ' + response.status);
-
-        const data = await response.json();
-        const assistantMessage = data.content[0].text;
-
-        conversationHistory.push({ role: 'assistant', content: assistantMessage });
-        hideTypingIndicator();
-        addMessage(assistantMessage, 'ai');
-        checkForLeadCapture(assistantMessage);
-
-      } catch (error) {
-        console.error('Chat error:', error);
-        hideTypingIndicator();
-        addMessage("Sorry, I'm having trouble connecting. Give us a call at (713) 528-4200 and we'll help you out!", 'ai');
-      }
-
-      isProcessing = false;
-    }
-
-    function addMessage(text, sender) {
-      const messagesContainer = document.getElementById('chat-messages');
-      const messageDiv = document.createElement('div');
-      messageDiv.className = 'message ' + sender;
-      const contentDiv = document.createElement('div');
-      contentDiv.className = 'message-content';
-      contentDiv.textContent = text;
-      messageDiv.appendChild(contentDiv);
-      messagesContainer.appendChild(messageDiv);
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    function showTypingIndicator() {
-      document.querySelector('.typing-indicator').style.display = 'block';
-      document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
-    }
-
-    function hideTypingIndicator() {
-      document.querySelector('.typing-indicator').style.display = 'none';
-    }
-
-    function checkForLeadCapture(message) {
-      const triggers = ['tour', 'sign up', 'get started', 'contact', 'schedule', 'apply', 'join'];
-      if (triggers.some(word => message.toLowerCase().includes(word))) {
-        showLeadForm();
-      }
-    }
-
-    function showLeadForm() {
-      document.getElementById('lead-form-container').classList.add('show');
-      document.getElementById('chat-input-container').style.display = 'none';
-    }
-
-    function hideLeadForm() {
-      document.getElementById('lead-form-container').classList.remove('show');
-      document.getElementById('chat-input-container').style.display = 'flex';
-    }
-
-    // ===== LEAD CAPTURE =====
-    document.getElementById('lead-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const name = document.getElementById('lead-name').value;
-      const email = document.getElementById('lead-email').value;
-      const phone = document.getElementById('lead-phone').value;
-
-      try {
-        if (FORMSPREE_ID) {
-          await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, phone, source: 'chatbot', client: CLIENT_ID })
-          });
-        } else if (GOOGLE_SHEET_URL) {
-          await fetch(GOOGLE_SHEET_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, phone, source: 'chatbot', client: CLIENT_ID })
-          });
-        }
-
-        addMessage("Awesome, " + name + "! We've got your info. A team member will reach out to schedule your free tour. See you soon!", 'ai');
-        hideLeadForm();
-
-      } catch (error) {
-        console.error('Lead capture error:', error);
-        addMessage("Got it! If the form had trouble, just give us a call at (713) 528-4200.", 'ai');
-        hideLeadForm();
-      }
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('mobile-open'));
     });
 
     // ===== FAQ ACCORDION =====
-    function toggleFaq(element) {
-      const item = element.parentElement;
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
-    }
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
 
-    // ===== SMOOTH SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        // open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
         }
       });
+    });
+
+    // ===== CHATBOT =====
+    const WORKER_URL = 'https://optima-api-sam.saramirez2024.workers.dev';
+    const CLIENT_ID = 'fanclub-houston';
+
+    const launcher = document.getElementById('chat-launcher');
+    const chatWindow = document.getElementById('chat-window');
+    const closeBtn = document.getElementById('chat-close');
+    const messagesEl = document.getElementById('chat-messages');
+    const inputEl = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('chat-send');
+
+    let conversationHistory = [];
+    let isOpen = false;
+
+    function toggleChat() {
+      isOpen = !isOpen;
+      chatWindow.classList.toggle('open', isOpen);
+      if (isOpen && messagesEl.children.length === 0) {
+        appendMessage('bot', "Hey! I'm the Fan Club assistant. Ask me anything about memberships, classes, hours, or services.");
+      }
+      if (isOpen) inputEl.focus();
+    }
+
+    launcher.addEventListener('click', toggleChat);
+    closeBtn.addEventListener('click', toggleChat);
+
+    function appendMessage(role, text) {
+      const el = document.createElement('div');
+      el.className = `chat-msg ${role}`;
+      el.textContent = text;
+      messagesEl.appendChild(el);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return el;
+    }
+
+    function showTyping() {
+      const el = appendMessage('typing', 'Typing...');
+      return el;
+    }
+
+    async function sendMessage() {
+      const text = inputEl.value.trim();
+      if (!text) return;
+
+      inputEl.value = '';
+      appendMessage('user', text);
+      conversationHistory.push({ role: 'user', content: text });
+
+      const typingEl = showTyping();
+
+      try {
+        const res = await fetch(`${WORKER_URL}/chat`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            clientId: CLIENT_ID,
+            messages: conversationHistory
+          })
+        });
+
+        typingEl.remove();
+
+        if (!res.ok) throw new Error('Request failed');
+
+        const data = await res.json();
+        const reply = data.response || data.message || data.content || "Sorry, I didn't catch that.";
+        conversationHistory.push({ role: 'assistant', content: reply });
+        appendMessage('bot', reply);
+      } catch (err) {
+        typingEl.remove();
+        appendMessage('bot', "Sorry, I'm having trouble connecting. Give us a call at (713) 287-4000.");
+      }
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    inputEl.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
     });
   </script>
 
