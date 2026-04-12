@@ -283,6 +283,59 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
+/* Hero background image — replace var(--bg) with your photo */
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* REPLACE: set your hero image here */
+  /* background-image: url('your-hero-image.jpg'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(10, 10, 10, 0.92) 0%,
+    rgba(10, 10, 10, 0.75) 50%,
+    rgba(10, 10, 10, 0.5) 100%
+  );
+  z-index: 1;
+}
+
+.hero-bg-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg-placeholder-label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.06);
+  padding: 12px 24px;
+  border-radius: 4px;
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -294,11 +347,12 @@ img { max-width: 100%; display: block; }
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px 200px;
   pointer-events: none;
+  z-index: 2;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   padding: 120px 0;
 }
 
@@ -408,7 +462,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   gap: 16px;
-  z-index: 1;
+  z-index: 3;
 }
 
 .hero-stat-item {
@@ -591,6 +645,36 @@ img { max-width: 100%; display: block; }
 
 .service-card.large {
   grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-image {
+  width: calc(100% + 64px);
+  margin: -32px -32px 24px -32px;
+  aspect-ratio: 16 / 9;
+  background: #151515;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  /* REPLACE: set your service image here */
+  /* background-image: url('your-weights-image.jpg'); */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card-image .img-placeholder-label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.06);
+  padding: 8px 16px;
+  border-radius: 4px;
 }
 
 .service-card-number {
@@ -631,6 +715,23 @@ img { max-width: 100%; display: block; }
 .testimonial {
   background: var(--bg-alt);
   padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  /* REPLACE: set your testimonial/atmosphere image here */
+  /* background-image: url('your-atmosphere-image.jpg'); */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%, transparent 100%);
 }
 
 .testimonial-inner {
@@ -974,23 +1075,18 @@ img { max-width: 100%; display: block; }
   margin-top: 20px;
 }
 
-.location-map-placeholder {
+.location-image-container {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 6px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
   min-height: 360px;
 }
 
-.location-map-placeholder span {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 500;
-  font-size: 1.2rem;
-  color: var(--gray);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+.location-image-container iframe {
+  border-radius: 6px;
 }
 
 /* ===== 11. FOOTER CTA ===== */
@@ -1566,6 +1662,12 @@ img { max-width: 100%; display: block; }
 
 <!-- ===== 2. HERO ===== -->
 <section class="hero" id="hero">
+  <!-- REPLACE: uncomment background-image in .hero-bg-image CSS and remove .hero-bg-placeholder -->
+  <div class="hero-bg-image"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-bg-placeholder">
+    <span class="hero-bg-placeholder-label">Hero Image &mdash; Wide Interior Shot</span>
+  </div>
   <div class="container hero-content">
     <p class="hero-label">Houston, TX &nbsp;&bull;&nbsp; Est. 2010</p>
     <h1 class="hero-headline">Where Houston<br>Gets <span class="strong-word">Strong.</span></h1>
@@ -1623,11 +1725,17 @@ img { max-width: 100%; display: block; }
         <p>We've been in the same spot on the Southwest Freeway since 2010. No gimmicks, no annual fees, no pressure. Just equipment that works, trainers who know what they're doing, and a community that keeps coming back.</p>
         <p>From free weights and group classes to recovery therapy and nutrition coaching, everything is under one roof. This is what a gym should be.</p>
       </div>
-      <div class="about-highlights reveal">
-        <div class="about-highlight-item">28,000+ Sq Ft of Training Space</div>
-        <div class="about-highlight-item">Certified Trainers on Staff</div>
-        <div class="about-highlight-item">Open 7 Days a Week</div>
-        <div class="about-highlight-item">Independently Owned Since 2010</div>
+      <div class="about-image-col reveal">
+        <!-- REPLACE: add background-image to .about-image-container CSS -->
+        <div class="about-image-container">
+          <span class="img-placeholder-label">Members Training / Entrance</span>
+        </div>
+        <div class="about-highlights">
+          <div class="about-highlight-item">28,000+ Sq Ft of Training Space</div>
+          <div class="about-highlight-item">Certified Trainers on Staff</div>
+          <div class="about-highlight-item">Open 7 Days a Week</div>
+          <div class="about-highlight-item">Independently Owned Since 2010</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1640,6 +1748,10 @@ img { max-width: 100%; display: block; }
     <h2 class="services-headline reveal">Everything Under One Roof</h2>
     <div class="services-grid">
       <div class="service-card large reveal" style="--i: 0">
+        <!-- REPLACE: add background-image to .service-card-image CSS -->
+        <div class="service-card-image">
+          <span class="img-placeholder-label">Equipment / Weight Floor</span>
+        </div>
         <div class="service-card-number">01</div>
         <div class="service-card-title">Free Weights &amp; Machines</div>
         <div class="service-card-desc">28,000 sq ft of iron. Squat racks, platforms, dumbbells to 150 lbs, plate-loaded machines, cable stations &mdash; everything you need to build.</div>
@@ -1675,6 +1787,8 @@ img { max-width: 100%; display: block; }
 
 <!-- ===== 7. TESTIMONIAL ===== -->
 <section class="testimonial reveal">
+  <!-- REPLACE: add background-image to .testimonial-bg CSS -->
+  <div class="testimonial-bg"></div>
   <div class="container">
     <div class="testimonial-inner">
       <span class="testimonial-quote-mark">"</span>
@@ -1829,8 +1943,16 @@ img { max-width: 100%; display: block; }
         </div>
         <p class="location-parking">Free parking available for all members and visitors.</p>
       </div>
-      <div class="location-map-placeholder">
-        <span>Map</span>
+      <div class="location-image-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.3!2d-95.4536!3d29.7369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c1f4b0a5a8e7%3A0x5a6e2f2e8b0a5a8e!2s4665%20SW%20Fwy%2C%20Houston%2C%20TX%2077027!5e0!3m2!1sen!2sus!4v1700000000000"
+          width="100%"
+          height="100%"
+          style="border:0; min-height:360px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Fan Club Health & Fitness location"></iframe>
       </div>
     </div>
   </div>
@@ -2190,13 +2312,60 @@ img { max-width: 100%; display: block; }
       clearTimeout(timeout);
       hideTypingIndicator();
 
-      if (error.name === 'AbortError') {
+      var fallback = getLocalResponse(text);
+      if (fallback) {
+        conversationHistory.push({ role: 'assistant', content: fallback });
+        addMessage(fallback, 'ai');
+      } else if (error.name === 'AbortError') {
         addMessage("Taking longer than expected. Give us a call at (713) 528-4200 and we'll help you out.", 'ai');
       } else {
-        addMessage("Having trouble connecting. Call us at (713) 528-4200.", 'ai');
+        addMessage("I'm having trouble connecting right now. Here are some quick answers — ask about pricing, hours, location, classes, or call us at (713) 528-4200.", 'ai');
       }
     }
   };
+
+  /* ===== LOCAL FALLBACK RESPONSES ===== */
+  function getLocalResponse(input) {
+    var q = input.toLowerCase();
+
+    if (/pric|cost|how much|member|rate|fee/.test(q)) {
+      return "We have three options:\n\u2022 Standard: $89/month \u2014 full gym access, all classes, no contract\n\u2022 Premium: $119/month \u2014 adds recovery lounge, sauna, 1 PT session/month\n\u2022 Day Pass: $20/day \u2014 full access, no commitment\nAll month-to-month, no contracts. Want to schedule a tour?";
+    }
+    if (/hour|open|close|when/.test(q)) {
+      return "Our hours:\n\u2022 Mon\u2013Thu: 5 AM \u2013 9 PM\n\u2022 Friday: 5 AM \u2013 7 PM\n\u2022 Saturday: 7 AM \u2013 5 PM\n\u2022 Sunday: 9 AM \u2013 3 PM";
+    }
+    if (/where|locat|address|direction|find you|map/.test(q)) {
+      return "We're at 4665 SW Freeway, Houston TX 77027 \u2014 right off the Southwest Freeway with free parking. Call us at (713) 528-4200.";
+    }
+    if (/class|yoga|pilates|group|schedule/.test(q)) {
+      return "We offer Pilates, Yoga, FC RED high-intensity training, and more. Multiple classes run daily so there's always one that fits your schedule. Classes are included with all memberships.";
+    }
+    if (/train|personal|coach|one.on.one/.test(q)) {
+      return "We have certified personal trainers on staff for one-on-one coaching. Custom programs for all levels. Premium members get 1 session/month included, or you can add sessions to any plan.";
+    }
+    if (/recover|sauna|red.light|compress|infrared/.test(q)) {
+      return "Our recovery lounge includes red light therapy, compression boots, and infrared sauna. Available with the Premium membership ($119/month) or as an add-on.";
+    }
+    if (/contract|cancel|commit/.test(q)) {
+      return "No contracts, ever. All memberships are month-to-month. No cancellation fees. We earn your membership every single month.";
+    }
+    if (/tour|visit|try|check.out|come.in|drop.in/.test(q)) {
+      return "We'd love to show you around! Walk in anytime during business hours for a free tour \u2014 no appointment needed. Or call (713) 528-4200 to schedule one.";
+    }
+    if (/park/.test(q)) {
+      return "Yes, we have free parking available for all members and visitors.";
+    }
+    if (/veteran|military|discount|corporate/.test(q)) {
+      return "Yes! We offer veteran/military discounts and corporate rates. Ask at the front desk or call (713) 528-4200 for details.";
+    }
+    if (/^(hi|hello|hey|sup|what'?s up|yo)[\s!?.]*$/i.test(q)) {
+      return "Hey! Welcome to Fan Club Health & Fitness. I can help with pricing, hours, classes, location, or schedule a free tour. What would you like to know?";
+    }
+    if (/thank|thx|appreciate/.test(q)) {
+      return "You're welcome! Let us know if you need anything else. See you at the gym!";
+    }
+    return null;
+  }
 
 })();
 </script>
