@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fan Club Health & Fitness — Houston's Premier Independent Gym</title>
+<meta name="description" content="28,000+ sq ft of premium fitness, personal training, recovery, and wellness in Houston TX. No contracts. Real results. Book a free tour today.">
+<meta property="og:title" content="Fan Club Health & Fitness">
+<meta property="og:description" content="Houston's premier independent gym. 28,000+ sq ft, no contracts, real results.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #0a0a0a;
+  --bg-alt:     #111111;
+  --bg-card:    #1a1a1a;
+  --red:        #E63946;
+  --red-dark:   #C1121F;
+  --red-glow:   rgba(230, 57, 70, 0.15);
+  --gold:       #C9A84C;
+  --white:      #f5f5f0;
+  --gray:       #888888;
+  --gray-light: #aaaaaa;
+  --border:     rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul { list-style: none; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.display {
+  font-family: 'Bebas Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.heading {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.section-label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gray);
+  margin-bottom: 12px;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card.reveal { transition-delay: calc(var(--i) * 0.1s); }
+.pricing-card.reveal { transition-delay: calc(var(--i) * 0.12s); }
+
+/* ===== 1. NAV ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 64px;
+}
+
+.nav-wordmark {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--gray);
+  transition: color 0.3s;
+  letter-spacing: 0.02em;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--red);
+}
+
+.nav-cta {
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.nav-cta:hover {
+  background: var(--red-dark);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background: #0a0a0a;
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 40px 40px;
+  border-left: 1px solid var(--border);
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu a {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--gray);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.3s;
+  display: block;
+}
+
+.mobile-menu a:hover {
+  color: var(--white);
+}
+
+.mobile-menu .nav-cta {
+  margin-top: 24px;
+  text-align: center;
+  display: block;
+}
+
+/* ===== 2. HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 120px 0;
+}
+
+.hero-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+}
+
+.hero-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4.5rem, 12vw, 9rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  clip-path: inset(0 100% 0 0);
+  animation: heroReveal 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 200ms forwards;
+}
+
+@keyframes heroReveal {
+  to { clip-path: inset(0 0% 0 0); }
+}
+
+.hero-headline .strong-word {
+  display: inline-block;
+  position: relative;
+}
+
+.hero-headline .strong-word::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--red);
+}
+
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 1.15rem;
+  color: var(--gray);
+  margin-top: 24px;
+  max-width: 500px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 4px;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-secondary:hover {
+  border-color: var(--white);
+}
+
+.hero-stat-block {
+  position: absolute;
+  bottom: 80px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1;
+}
+
+.hero-stat-item {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-light);
+  padding-left: 16px;
+  border-left: 2px solid var(--red);
+}
+
+/* ===== 3. MARQUEE ===== */
+.marquee {
+  width: 100%;
+  background: var(--bg-alt);
+  padding: 16px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: marqueeScroll 30s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-content {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+  padding-right: 0;
+}
+
+.marquee-content .sep {
+  color: var(--red);
+  margin: 0 16px;
+}
+
+/* ===== 4. STATS BAR ===== */
+.stats-bar {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 60px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+
+.stat-item {
+  padding: 0 20px;
+  border-right: 1px solid var(--border);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--white);
+}
+
+.stat-number.accent {
+  color: var(--red);
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--gray);
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+}
+
+/* ===== 5. ABOUT ===== */
+.about {
+  background: var(--bg);
+  padding: 120px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 80px;
+  margin-top: 48px;
+}
+
+.about-copy p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--gray-light);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+
+.about-highlight-item {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  padding-left: 20px;
+  border-left: 2px solid var(--red);
+}
+
+.about-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 0.95;
+}
+
+/* ===== 6. SERVICES ===== */
+.services {
+  background: var(--bg);
+  padding: 120px 0;
+}
+
+.services-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 0.95;
+  margin-bottom: 48px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.service-card:hover {
+  border-color: var(--red);
+  transform: translateY(-3px);
+}
+
+.service-card.large {
+  grid-row: span 2;
+}
+
+.service-card-number {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.service-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.service-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.service-card.large .service-card-title {
+  font-size: 1.6rem;
+}
+
+.service-card.large .service-card-desc {
+  font-size: 1rem;
+}
+
+/* ===== 7. SOCIAL PROOF ===== */
+.testimonial {
+  background: var(--bg-alt);
+  padding: 100px 0;
+}
+
+.testimonial-inner {
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 20px;
+}
+
+.testimonial-quote-mark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  color: var(--gold);
+  opacity: 0.6;
+  line-height: 1;
+  position: absolute;
+  top: -30px;
+  left: -20px;
+}
+
+.testimonial-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--white);
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-attribution {
+  margin-top: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.testimonial-since {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+/* ===== 8. PRICING ===== */
+.pricing {
+  background: var(--bg);
+  padding: 120px 0;
+}
+
+.pricing-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 0.95;
+  margin-bottom: 48px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card.featured {
+  border-color: var(--red);
+}
+
+.pricing-plan-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.pricing-amount {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: var(--white);
+  line-height: 1;
+}
+
+.pricing-period {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--gray);
+  margin-left: 4px;
+}
+
+.pricing-features {
+  margin: 28px 0 32px;
+  flex: 1;
+}
+
+.pricing-features li {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--gray-light);
+  padding: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pricing-check {
+  color: var(--red);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.pricing-btn {
+  background: transparent;
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  padding: 14px 24px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  text-align: center;
+  width: 100%;
+}
+
+.pricing-btn:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
+.pricing-card.featured .pricing-btn {
+  background: var(--red);
+  color: var(--white);
+}
+
+.pricing-card.featured .pricing-btn:hover {
+  background: var(--red-dark);
+}
+
+.pricing-footnote {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--gray);
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ===== 9. FAQ ===== */
+.faq {
+  background: var(--bg-alt);
+  padding: 120px 0;
+}
+
+.faq-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 0.95;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.faq-list {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 24px 0;
+  cursor: pointer;
+  text-align: left;
+  min-height: 44px;
+}
+
+.faq-question-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding-right: 16px;
+}
+
+.faq-toggle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  color: var(--gray);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+}
+
+.faq-item.open .faq-toggle {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer-inner {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--gray-light);
+  line-height: 1.7;
+  padding-bottom: 24px;
+}
+
+/* ===== 10. LOCATION ===== */
+.location {
+  background: var(--bg);
+  padding: 120px 0;
+}
+
+.location-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 0.95;
+  margin-bottom: 48px;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.location-info h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.location-info p,
+.location-info a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--gray-light);
+  line-height: 1.8;
+}
+
+.location-info a:hover {
+  color: var(--white);
+}
+
+.location-hours {
+  margin-top: 28px;
+}
+
+.location-hours h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.location-hours-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.location-hours-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  max-width: 340px;
+}
+
+.location-hours-day {
+  color: var(--gray);
+}
+
+.location-hours-time {
+  color: var(--gray-light);
+}
+
+.location-parking {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 20px;
+}
+
+.location-map-placeholder {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+
+.location-map-placeholder span {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ===== 11. FOOTER CTA ===== */
+.footer-cta {
+  background: var(--red);
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.footer-cta-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.footer-cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 16px;
+}
+
+.footer-cta-btn {
+  display: inline-block;
+  background: var(--white);
+  color: var(--red);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 4px;
+  padding: 16px 36px;
+  cursor: pointer;
+  margin-top: 32px;
+  transition: opacity 0.3s;
+}
+
+.footer-cta-btn:hover {
+  opacity: 0.9;
+}
+
+/* ===== 12. FOOTER ===== */
+.footer {
+  background: #080808;
+  padding: 60px 40px 30px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-left-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.footer-left p,
+.footer-left a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+.footer-left a:hover { color: var(--gray-light); }
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.footer-right-line {
+  width: 40px;
+  height: 2px;
+  background: var(--red);
+  margin-bottom: 16px;
+}
+
+.footer-right p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--gray);
+  text-align: right;
+}
+
+.footer-right .powered-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--gray-light);
+  margin-bottom: 4px;
+}
+
+.footer-copyright {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-copyright p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+/* ===== 13. CHATBOT ===== */
+.chat-toggle {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--red);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.4);
+}
+
+.chat-toggle.visible {
+  opacity: 1;
+}
+
+.chat-toggle.pulse {
+  animation: chatPulse 2s ease-in-out infinite;
+}
+
+@keyframes chatPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(230, 57, 70, 0); }
+}
+
+.chat-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--white);
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 96px;
+  right: 28px;
+  z-index: 1000;
+  width: 380px;
+  max-height: 540px;
+  height: 70vh;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.chat-window.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.chat-header {
+  background: #111;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.chat-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.chat-header-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-top: 2px;
+}
+
+.chat-close {
+  background: none;
+  border: none;
+  color: var(--gray);
+  font-size: 1.3rem;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s;
+}
+
+.chat-close:hover {
+  color: var(--white);
+}
+
+.chat-messages {
+  background: #111;
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.chat-msg.ai {
+  background: #222;
+  color: var(--gray-light);
+  border-radius: 4px 12px 12px 12px;
+  align-self: flex-start;
+}
+
+.chat-msg.user {
+  background: var(--red);
+  color: var(--white);
+  border-radius: 12px 4px 12px 12px;
+  align-self: flex-end;
+}
+
+.typing-indicator {
+  display: none;
+  align-self: flex-start;
+  background: #222;
+  border-radius: 4px 12px 12px 12px;
+  padding: 12px 16px;
+  gap: 4px;
+}
+
+.typing-indicator.show {
+  display: flex;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gray);
+  animation: typingPulse 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingPulse {
+  0%, 60%, 100% { opacity: 0.3; }
+  30% { opacity: 1; }
+}
+
+.chat-input-area {
+  background: #0a0a0a;
+  border-top: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.chat-input {
+  flex: 1;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  min-height: 44px;
+}
+
+.chat-input::placeholder {
+  color: var(--gray);
+}
+
+.chat-send {
+  background: var(--red);
+  border: none;
+  border-radius: 6px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.chat-send:hover {
+  background: var(--red-dark);
+}
+
+.chat-send svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--white);
+}
+
+/* Lead form in chat */
+.lead-form-container {
+  background: var(--bg-card);
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 8px;
+  align-self: flex-start;
+  max-width: 90%;
+}
+
+.lead-form-container h4 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.lead-form-container input {
+  display: block;
+  width: 100%;
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  outline: none;
+  min-height: 44px;
+}
+
+.lead-form-container input::placeholder {
+  color: var(--gray);
+}
+
+.lead-form-container button {
+  width: 100%;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 4px;
+  min-height: 44px;
+  transition: background 0.3s;
+}
+
+.lead-form-container button:hover {
+  background: var(--red-dark);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .nav-inner {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-cta.desktop-only {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero-content {
+    padding: 100px 0 80px;
+  }
+
+  .hero-stat-block {
+    display: none;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons a,
+  .hero-buttons button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .stat-item {
+    border-right: none;
+    padding: 0;
+  }
+
+  .stat-item:nth-child(1),
+  .stat-item:nth-child(2) {
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about {
+    padding: 80px 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .services {
+    padding: 80px 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card.large {
+    grid-row: span 1;
+  }
+
+  .pricing {
+    padding: 80px 0;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq {
+    padding: 80px 0;
+  }
+
+  .location {
+    padding: 80px 0;
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-right {
+    align-items: flex-start;
+  }
+
+  .footer-right p {
+    text-align: left;
+  }
+
+  .chat-window {
+    width: calc(100vw - 32px);
+    right: 16px;
+    max-height: 70vh;
+  }
+
+  .footer-cta {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 1. NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-wordmark">FAN CLUB</a>
+    <div class="nav-links">
+      <a href="#about" data-section="about">About</a>
+      <a href="#services" data-section="services">Services</a>
+      <a href="#pricing" data-section="pricing">Pricing</a>
+      <a href="#faq" data-section="faq">FAQ</a>
+      <a href="#pricing" class="nav-cta">Book Free Tour</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-close" aria-label="Close menu">&times;</button>
+  <a href="#about" class="mobile-nav-link">About</a>
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <a href="#pricing" class="mobile-nav-link">Pricing</a>
+  <a href="#faq" class="mobile-nav-link">FAQ</a>
+  <a href="#location" class="mobile-nav-link">Location</a>
+  <a href="#pricing" class="nav-cta">Book Free Tour</a>
+</div>
+
+<!-- ===== 2. HERO ===== -->
+<section class="hero" id="hero">
+  <div class="container hero-content">
+    <p class="hero-label">Houston, TX &nbsp;&bull;&nbsp; Est. 2010</p>
+    <h1 class="hero-headline">Where Houston<br>Gets <span class="strong-word">Strong.</span></h1>
+    <p class="hero-sub">28,000 sq ft of premium fitness. No contracts. Real results.</p>
+    <div class="hero-buttons">
+      <a href="#pricing" class="btn-primary">Book a Free Tour</a>
+      <a href="#pricing" class="btn-secondary">View Pricing</a>
+    </div>
+  </div>
+  <div class="hero-stat-block">
+    <div class="hero-stat-item">28K+ Sq Ft</div>
+    <div class="hero-stat-item">No Contracts</div>
+  </div>
+</section>
+
+<!-- ===== 3. MARQUEE ===== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-content">Free Weights<span class="sep">&bull;</span>Cardio<span class="sep">&bull;</span>Group Fitness<span class="sep">&bull;</span>Personal Training<span class="sep">&bull;</span>Recovery Lounge<span class="sep">&bull;</span>Sauna<span class="sep">&bull;</span>Sports Performance<span class="sep">&bull;</span>Nutrition Coaching<span class="sep">&bull;</span>Youth Fitness<span class="sep">&bull;</span>No Contracts<span class="sep">&bull;</span></span><span class="marquee-content">Free Weights<span class="sep">&bull;</span>Cardio<span class="sep">&bull;</span>Group Fitness<span class="sep">&bull;</span>Personal Training<span class="sep">&bull;</span>Recovery Lounge<span class="sep">&bull;</span>Sauna<span class="sep">&bull;</span>Sports Performance<span class="sep">&bull;</span>Nutrition Coaching<span class="sep">&bull;</span>Youth Fitness<span class="sep">&bull;</span>No Contracts<span class="sep">&bull;</span></span>
+  </div>
+</div>
+
+<!-- ===== 4. STATS BAR ===== -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number accent" data-target="28000" data-suffix="+">0</div>
+        <div class="stat-label">Sq Ft Facility</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="2000" data-suffix="+">0</div>
+        <div class="stat-label">Active Members</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="15" data-suffix="+">0</div>
+        <div class="stat-label">Classes Per Week</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="89" data-prefix="$">0</div>
+        <div class="stat-label">Per Month, No Contract</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <p class="section-label reveal">&mdash; About Us</p>
+    <h2 class="about-headline reveal">Not a Franchise. Not a Chain.<br>Houston's Gym.</h2>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>Fan Club isn't a franchise. It's 28,000 sq ft of real training space built for people who show up. Whether you're training for competition or just getting started, this is where Houston gets to work.</p>
+        <p>We've been in the same spot on the Southwest Freeway since 2010. No gimmicks, no annual fees, no pressure. Just equipment that works, trainers who know what they're doing, and a community that keeps coming back.</p>
+        <p>From free weights and group classes to recovery therapy and nutrition coaching, everything is under one roof. This is what a gym should be.</p>
+      </div>
+      <div class="about-highlights reveal">
+        <div class="about-highlight-item">28,000+ Sq Ft of Training Space</div>
+        <div class="about-highlight-item">Certified Trainers on Staff</div>
+        <div class="about-highlight-item">Open 7 Days a Week</div>
+        <div class="about-highlight-item">Independently Owned Since 2010</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <p class="section-label reveal">&mdash; What We Offer</p>
+    <h2 class="services-headline reveal">Everything Under One Roof</h2>
+    <div class="services-grid">
+      <div class="service-card large reveal" style="--i: 0">
+        <div class="service-card-number">01</div>
+        <div class="service-card-title">Free Weights &amp; Machines</div>
+        <div class="service-card-desc">28,000 sq ft of iron. Squat racks, platforms, dumbbells to 150 lbs, plate-loaded machines, cable stations &mdash; everything you need to build.</div>
+      </div>
+      <div class="service-card reveal" style="--i: 1">
+        <div class="service-card-number">02</div>
+        <div class="service-card-title">Group Fitness Classes</div>
+        <div class="service-card-desc">Pilates, Yoga, FC RED high-intensity training, and more. Multiple classes daily so there's always one that fits.</div>
+      </div>
+      <div class="service-card reveal" style="--i: 2">
+        <div class="service-card-number">03</div>
+        <div class="service-card-title">Personal Training</div>
+        <div class="service-card-desc">One-on-one coaching with certified trainers. Custom programs whether you're just starting or prepping for competition.</div>
+      </div>
+      <div class="service-card reveal" style="--i: 3">
+        <div class="service-card-number">04</div>
+        <div class="service-card-title">Recovery Lounge &amp; Sauna</div>
+        <div class="service-card-desc">Red light therapy, compression boots, infrared sauna. Recover faster, train harder.</div>
+      </div>
+      <div class="service-card reveal" style="--i: 4">
+        <div class="service-card-number">05</div>
+        <div class="service-card-title">Sports Performance</div>
+        <div class="service-card-desc">Speed, agility, power. Dedicated training for athletes who want an edge.</div>
+      </div>
+      <div class="service-card reveal" style="--i: 5">
+        <div class="service-card-number">06</div>
+        <div class="service-card-title">Nutrition Coaching</div>
+        <div class="service-card-desc">Work with our on-staff nutritionists. Custom meal plans, macros, guidance. 80% of results happen outside the gym.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. TESTIMONIAL ===== -->
+<section class="testimonial reveal">
+  <div class="container">
+    <div class="testimonial-inner">
+      <span class="testimonial-quote-mark">"</span>
+      <p class="testimonial-text">"I've trained at every gym in Houston. Fan Club is the only one I've kept my membership at for three years straight. Real equipment, real people, zero attitude. It's the best-kept secret on the Southwest Freeway."</p>
+      <div class="testimonial-attribution">
+        <div class="testimonial-name">Maria R.</div>
+        <div class="testimonial-since">Member Since 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. PRICING ===== -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <p class="section-label reveal">&mdash; Membership</p>
+    <h2 class="pricing-headline reveal">Simple, Honest Pricing</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal" style="--i: 0">
+        <div class="pricing-plan-name">Standard</div>
+        <div><span class="pricing-amount">$89</span><span class="pricing-period">/month</span></div>
+        <ul class="pricing-features">
+          <li><span class="pricing-check">&#10003;</span>Full gym access, all equipment</li>
+          <li><span class="pricing-check">&#10003;</span>All group fitness classes</li>
+          <li><span class="pricing-check">&#10003;</span>Locker rooms and showers</li>
+          <li><span class="pricing-check">&#10003;</span>Free parking</li>
+          <li><span class="pricing-check">&#10003;</span>No contract, cancel anytime</li>
+        </ul>
+        <button class="pricing-btn" onclick="openChat()">Get Started</button>
+      </div>
+      <div class="pricing-card featured reveal" style="--i: 1">
+        <div class="pricing-plan-name">Premium</div>
+        <div><span class="pricing-amount">$119</span><span class="pricing-period">/month</span></div>
+        <ul class="pricing-features">
+          <li><span class="pricing-check">&#10003;</span>Everything in Standard</li>
+          <li><span class="pricing-check">&#10003;</span>Recovery lounge access</li>
+          <li><span class="pricing-check">&#10003;</span>Infrared sauna</li>
+          <li><span class="pricing-check">&#10003;</span>1 personal training session/month</li>
+          <li><span class="pricing-check">&#10003;</span>Priority class booking</li>
+        </ul>
+        <button class="pricing-btn" onclick="openChat()">Get Started</button>
+      </div>
+      <div class="pricing-card reveal" style="--i: 2">
+        <div class="pricing-plan-name">Day Pass</div>
+        <div><span class="pricing-amount">$20</span><span class="pricing-period">/day</span></div>
+        <ul class="pricing-features">
+          <li><span class="pricing-check">&#10003;</span>Full gym access for the day</li>
+          <li><span class="pricing-check">&#10003;</span>Group classes included</li>
+          <li><span class="pricing-check">&#10003;</span>Locker rooms and showers</li>
+          <li><span class="pricing-check">&#10003;</span>No commitment required</li>
+        </ul>
+        <button class="pricing-btn" onclick="openChat()">Drop In</button>
+      </div>
+    </div>
+    <p class="pricing-footnote reveal">All memberships month-to-month. No contracts. No cancellation fees. Veterans: ask about our military discount.</p>
+  </div>
+</section>
+
+<!-- ===== 9. FAQ ===== -->
+<section class="faq reveal" id="faq">
+  <div class="container">
+    <h2 class="faq-headline">Got Questions?</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Do I need to sign a contract?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No. Every membership is month-to-month. No long-term contracts, no commitments, no cancellation fees. We earn your membership every single month.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">What are your hours?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Monday&ndash;Thursday: 5 AM &ndash; 9 PM. Friday: 5 AM &ndash; 7 PM. Saturday: 7 AM &ndash; 5 PM. Sunday: 9 AM &ndash; 3 PM.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Can I try before I join?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. We offer free tours and $20 day passes. Walk in anytime or use the chat below to schedule. No pressure &mdash; we want you to feel at home before you commit.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">What's included in the Premium plan?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Everything in Standard plus recovery lounge access (red light therapy, compression boots), infrared sauna, one personal training session per month, and priority class booking. It's $119/month with no contract.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Do you offer veteran or corporate discounts?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes to both. We have special veteran memberships and corporate rates for businesses. Ask at the front desk or chat with us below for details.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Where are you located?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">4665 SW Freeway, Houston TX 77027. Right off the Southwest Freeway with plenty of free parking. Call us at (713) 528-4200.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. LOCATION ===== -->
+<section class="location reveal" id="location">
+  <div class="container">
+    <p class="section-label">&mdash; Find Us</p>
+    <h2 class="location-headline">Come See the Space</h2>
+    <div class="location-grid">
+      <div class="location-info">
+        <h3>Address</h3>
+        <p>4665 SW Freeway<br>Houston, TX 77027</p>
+        <p style="margin-top: 12px;"><a href="tel:7135284200">(713) 528-4200</a></p>
+        <div class="location-hours">
+          <h3>Hours</h3>
+          <div class="location-hours-table">
+            <div class="location-hours-row">
+              <span class="location-hours-day">Monday &ndash; Thursday</span>
+              <span class="location-hours-time">5 AM &ndash; 9 PM</span>
+            </div>
+            <div class="location-hours-row">
+              <span class="location-hours-day">Friday</span>
+              <span class="location-hours-time">5 AM &ndash; 7 PM</span>
+            </div>
+            <div class="location-hours-row">
+              <span class="location-hours-day">Saturday</span>
+              <span class="location-hours-time">7 AM &ndash; 5 PM</span>
+            </div>
+            <div class="location-hours-row">
+              <span class="location-hours-day">Sunday</span>
+              <span class="location-hours-time">9 AM &ndash; 3 PM</span>
+            </div>
+          </div>
+        </div>
+        <p class="location-parking">Free parking available for all members and visitors.</p>
+      </div>
+      <div class="location-map-placeholder">
+        <span>Map</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. FOOTER CTA ===== -->
+<section class="footer-cta">
+  <h2 class="footer-cta-headline">Ready to Start?</h2>
+  <p class="footer-cta-sub">Come in for a free tour. No pressure. No contract. No excuses.</p>
+  <a href="#pricing" class="footer-cta-btn">Book Your Free Tour &rarr;</a>
+</section>
+
+<!-- ===== 12. FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-left-name">Fan Club Health &amp; Fitness</div>
+      <p>4665 SW Freeway, Houston TX 77027</p>
+      <p><a href="tel:7135284200">(713) 528-4200</a></p>
+      <p>Mon&ndash;Thu 5AM&ndash;9PM &nbsp;|&nbsp; Fri 5AM&ndash;7PM &nbsp;|&nbsp; Sat 7AM&ndash;5PM &nbsp;|&nbsp; Sun 9AM&ndash;3PM</p>
+    </div>
+    <div class="footer-right">
+      <div class="footer-right-line"></div>
+      <p class="powered-label">Powered by Optima AI</p>
+      <p>AI-powered customer assistant by Optima</p>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <p>&copy; 2026 Fan Club Health &amp; Fitness. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ===== 13. CHATBOT ===== -->
+<button class="chat-toggle" id="chat-toggle" aria-label="Open chat">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
+</button>
+
+<div class="chat-window" id="chat-window">
+  <div class="chat-header">
+    <div class="chat-header-info">
+      <div class="chat-header-title">FC Assistant</div>
+      <div class="chat-header-sub">Fan Club Health &amp; Fitness</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="chat-msg ai">Welcome to Fan Club. Ask me about memberships, classes, or schedule a free tour.</div>
+    <div class="typing-indicator" id="typing-indicator">
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+    </div>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" class="chat-input" id="chat-input" placeholder="Type a message..." autocomplete="off">
+    <button class="chat-send" onclick="sendMessage()" aria-label="Send message">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ===== CONFIG ===== */
+  var WORKER_URL = 'https://optima-api-sam.saramirez2024.workers.dev';
+  var CLIENT_ID = 'fanclub-houston';
+  var FORMSPREE_ID = '';
+  var GOOGLE_SHEET_URL = '';
+
+  var conversationHistory = [];
+  var chatOpened = false;
+  var leadFormShown = false;
+
+  /* ===== MOBILE MENU ===== */
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+  var mobileClose = document.getElementById('mobile-close');
+
+  function openMobileMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openMobileMenu);
+  mobileClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+
+  document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  /* ===== SMOOTH SCROLL ===== */
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ===== SCROLL REVEAL ===== */
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  /* ===== COUNTER ANIMATION ===== */
+  function animateCounter(el) {
+    var target = parseInt(el.dataset.target);
+    var suffix = el.dataset.suffix || '';
+    var prefix = el.dataset.prefix || '';
+    var duration = 2000;
+    var start = performance.now();
+
+    function update(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.floor(eased * target);
+      el.textContent = prefix + current.toLocaleString() + (progress >= 1 ? suffix : '');
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  var counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.stat-number').forEach(function(el) {
+    counterObserver.observe(el);
+  });
+
+  /* ===== ACTIVE NAV ===== */
+  var navLinks = document.querySelectorAll('.nav-links a[data-section]');
+  var sections = document.querySelectorAll('section[id]');
+
+  var navObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.getAttribute('id');
+        navLinks.forEach(function(link) {
+          link.classList.toggle('active', link.dataset.section === id);
+        });
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+  sections.forEach(function(section) {
+    navObserver.observe(section);
+  });
+
+  /* ===== FAQ ===== */
+  window.toggleFaq = function(btn) {
+    var item = btn.parentElement;
+    var answer = item.querySelector('.faq-answer');
+    var wasOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-answer').style.maxHeight = '0';
+    });
+
+    if (!wasOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  };
+
+  /* ===== CHATBOT ===== */
+  var chatToggleBtn = document.getElementById('chat-toggle');
+  var chatWindow = document.getElementById('chat-window');
+  var chatMessages = document.getElementById('chat-messages');
+  var chatInput = document.getElementById('chat-input');
+  var typingIndicator = document.getElementById('typing-indicator');
+
+  setTimeout(function() {
+    chatToggleBtn.classList.add('visible');
+    chatToggleBtn.classList.add('pulse');
+  }, 3000);
+
+  window.toggleChat = function() {
+    var isOpen = chatWindow.classList.contains('open');
+    if (isOpen) {
+      chatWindow.classList.remove('open');
+    } else {
+      openChat();
+    }
+  };
+
+  window.openChat = function() {
+    chatWindow.classList.add('open');
+    chatInput.focus();
+    if (!chatOpened) {
+      chatOpened = true;
+      chatToggleBtn.classList.remove('pulse');
+    }
+  };
+
+  chatToggleBtn.addEventListener('click', toggleChat);
+
+  chatInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  function addMessage(text, type) {
+    var msg = document.createElement('div');
+    msg.className = 'chat-msg ' + type;
+    msg.textContent = text;
+    chatMessages.insertBefore(msg, typingIndicator);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function addLeadForm() {
+    if (leadFormShown) return;
+    leadFormShown = true;
+
+    var formContainer = document.createElement('div');
+    formContainer.className = 'lead-form-container';
+    formContainer.innerHTML =
+      '<h4>Schedule Your Visit</h4>' +
+      '<form id="lead-form">' +
+      '<input type="text" name="name" placeholder="Your name" required>' +
+      '<input type="email" name="email" placeholder="Email address" required>' +
+      '<input type="tel" name="phone" placeholder="Phone (optional)">' +
+      '<button type="submit">Send My Info</button>' +
+      '</form>';
+
+    chatMessages.insertBefore(formContainer, typingIndicator);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    document.getElementById('lead-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = e.target;
+      var name = form.name.value;
+      var email = form.email.value;
+      var phone = form.phone.value;
+
+      if (FORMSPREE_ID) {
+        fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name, email: email, phone: phone, source: 'chatbot' })
+        }).catch(function() {});
+      } else if (GOOGLE_SHEET_URL) {
+        fetch(GOOGLE_SHEET_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name, email: email, phone: phone, source: 'chatbot' })
+        }).catch(function() {});
+      } else {
+        console.log('Lead captured (no backend configured):', { name: name, email: email, phone: phone });
+      }
+
+      form.reset();
+      formContainer.innerHTML = '<p style="color: var(--gray-light); font-family: Inter, sans-serif; font-size: 0.9rem;">Thanks, ' + name + '! We\'ll be in touch soon.</p>';
+      addMessage('Got it! Someone from our team will reach out to you shortly. In the meantime, feel free to call us at (713) 528-4200.', 'ai');
+    });
+  }
+
+  function checkForLeadCapture(text) {
+    var triggers = ['tour', 'sign up', 'get started', 'contact', 'schedule', 'apply', 'join'];
+    var lower = text.toLowerCase();
+    for (var i = 0; i < triggers.length; i++) {
+      if (lower.indexOf(triggers[i]) !== -1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function showTypingIndicator() {
+    typingIndicator.classList.add('show');
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function hideTypingIndicator() {
+    typingIndicator.classList.remove('show');
+  }
+
+  window.sendMessage = async function() {
+    var text = chatInput.value.trim();
+    if (!text) return;
+
+    addMessage(text, 'user');
+    chatInput.value = '';
+
+    conversationHistory.push({ role: 'user', content: text });
+
+    if (conversationHistory.length > 10) {
+      conversationHistory = conversationHistory.slice(-10);
+    }
+
+    if (checkForLeadCapture(text)) {
+      setTimeout(function() { addLeadForm(); }, 500);
+    }
+
+    showTypingIndicator();
+
+    var controller = new AbortController();
+    var timeout = setTimeout(function() { controller.abort(); }, 12000);
+
+    try {
+      var response = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Client-ID': CLIENT_ID },
+        body: JSON.stringify({ messages: conversationHistory }),
+        signal: controller.signal
+      });
+      clearTimeout(timeout);
+
+      var data = await response.json();
+
+      if (data.error) {
+        throw new Error(data.error.message || 'API returned an error');
+      }
+
+      if (!data.content || !data.content[0] || !data.content[0].text) {
+        throw new Error('Unexpected API response format');
+      }
+
+      var assistantMessage = data.content[0].text;
+      conversationHistory.push({ role: 'assistant', content: assistantMessage });
+
+      hideTypingIndicator();
+      addMessage(assistantMessage, 'ai');
+
+    } catch (error) {
+      clearTimeout(timeout);
+      hideTypingIndicator();
+
+      if (error.name === 'AbortError') {
+        addMessage("Taking longer than expected. Give us a call at (713) 528-4200 and we'll help you out.", 'ai');
+      } else {
+        addMessage("Having trouble connecting. Call us at (713) 528-4200.", 'ai');
+      }
+    }
+  };
+
+})();
+</script>
+
+</body>
+</html>
