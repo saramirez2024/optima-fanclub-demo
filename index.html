@@ -1381,8 +1381,47 @@
         appendMessage('bot', reply);
       } catch (err) {
         typingEl.remove();
-        appendMessage('bot', "Sorry, I'm having trouble connecting. Give us a call at (713) 287-4000.");
+        var fallback = getLocalResponse(text);
+        if (fallback) {
+          conversationHistory.push({ role: 'assistant', content: fallback });
+          appendMessage('bot', fallback);
+        } else {
+          appendMessage('bot', "I'm having trouble connecting right now. I can answer questions about pricing, hours, location, classes, training, and more \u2014 or call us at (713) 528-4200.");
+        }
       }
+    }
+
+    function getLocalResponse(input) {
+      var q = input.toLowerCase();
+      if (/pric|cost|how much|member|rate|fee/.test(q))
+        return "We have three options:\n\u2022 Standard: $89/month \u2014 full gym access, all classes, no contract\n\u2022 Premium: $119/month \u2014 adds recovery lounge, sauna, 1 PT session/month\n\u2022 Day Pass: $20/day \u2014 full access, no commitment\nAll month-to-month, no contracts. Want to schedule a tour?";
+      if (/hour|open|close|when/.test(q))
+        return "Our hours:\n\u2022 Mon\u2013Thu: 5 AM \u2013 9 PM\n\u2022 Friday: 5 AM \u2013 7 PM\n\u2022 Saturday: 7 AM \u2013 5 PM\n\u2022 Sunday: 9 AM \u2013 3 PM";
+      if (/where|locat|address|direction|find you|map/.test(q))
+        return "We're at 4665 SW Freeway, Houston TX 77027 \u2014 right off the Southwest Freeway with free parking. Call us at (713) 528-4200.";
+      if (/class|yoga|pilates|group|schedule/.test(q))
+        return "We offer Pilates, Yoga, FC RED high-intensity training, and more. Multiple classes run daily so there's always one that fits your schedule. Classes are included with all memberships.";
+      if (/train|personal|coach|one.on.one/.test(q))
+        return "We have certified personal trainers on staff for one-on-one coaching. Custom programs for all levels. Premium members get 1 session/month included, or you can add sessions to any plan.";
+      if (/recover|sauna|red.light|compress|infrared|lounge/.test(q))
+        return "Our Recovery Lounge includes red light therapy, compression boots, and infrared sauna. Available with the Premium membership ($119/month) or as an add-on.";
+      if (/contract|cancel|commit|enroll/.test(q))
+        return "No contracts, ever. All memberships are month-to-month. No cancellation fees. We earn your membership every single month.";
+      if (/tour|visit|try|check.out|come.in|drop.in|sign.up|join/.test(q))
+        return "We'd love to show you around! Walk in anytime during business hours for a free tour \u2014 no appointment needed. Or call (713) 528-4200 to schedule one.";
+      if (/park/.test(q))
+        return "Yes, we have free parking available for all members and visitors.";
+      if (/veteran|military|discount|corporate/.test(q))
+        return "Yes! We offer veteran/military discounts and corporate rates. Ask at the front desk or call (713) 528-4200 for details.";
+      if (/chain|franchise|independent/.test(q))
+        return "Nope! Fan Club is 100% independently owned and operated. We've been in the same spot on the Southwest Freeway since 2010. No franchise, no chain \u2014 just Houston's gym.";
+      if (/book|reserv/.test(q))
+        return "No need to book group classes in advance \u2014 just show up! For personal training sessions, we recommend scheduling ahead. Call (713) 528-4200 or ask at the front desk.";
+      if (/^(hi|hello|hey|sup|what'?s up|yo)[\s!?.]*$/i.test(q))
+        return "Hey! Welcome to Fan Club Health & Fitness. I can help with pricing, hours, classes, location, or schedule a free tour. What would you like to know?";
+      if (/thank|thx|appreciate/.test(q))
+        return "You're welcome! Let us know if you need anything else. See you at the gym!";
+      return null;
     }
 
     sendBtn.addEventListener('click', sendMessage);
